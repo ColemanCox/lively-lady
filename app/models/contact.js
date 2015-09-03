@@ -14,3 +14,23 @@ fullName: Ember.computed('firstName', 'lastName', function() {
 }),
 
 });
+
+var store = this.store;
+var contact = store.createRecord('contact', {
+  fullName: '',
+  phoneNumber: '',
+  emailAddress:'',
+});
+
+store.find('contact', 1).then(function(contact) {
+  contact.set(contact);
+  contact.deleteRecord();
+  contact.get('isDeleted');
+  contact.save();
+});
+
+store.find('contact', 2).then(function (contact) {
+  contact.destroyRecord();
+});
+
+
