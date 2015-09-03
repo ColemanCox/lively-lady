@@ -4,6 +4,11 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'lively-lady',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    firebase: 'https://YOUR-FIREBASE-NAME.firebaseio.com/',
+    'simple-auth': {
+      session: 'session:with-user'
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
